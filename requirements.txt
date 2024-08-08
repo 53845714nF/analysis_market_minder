@@ -1,0 +1,4 @@
+matplotlib
+colorama
+matplotlib_venn
+venn

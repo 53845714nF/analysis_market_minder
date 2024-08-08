@@ -1,0 +1,41 @@
+[
+  {
+    "id": "sha256:7b012ad1100588a43239321f455258206cd1ec8129d6fe6471c3d51f52fd231e",
+    "time": "2024-06-24T14:49:45.404784703Z",
+    "source": "",
+    "level": "None",
+    "object": {
+      "id": "sha256:7b012ad1100588a43239321f455258206cd1ec8129d6fe6471c3d51f52fd231e",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Info",
+    "detect_type": "Image",
+    "alert_type": "BasicImage",
+    "alert_detail": {
+      "references": [
+        "ghcr.io/53845714nf/marketminder/frontend:latest",
+        "registry:5000/frontend:latest",
+        "ghcr.io/53845714nf/marketminder/frontend@sha256:f13bddb819f266e3ee64d55d31b3bde54918e55c9f9998f98b1d23fa0013375a",
+        "registry:5000/frontend@sha256:6d855ea7f168a9246de3a32f84ab96cf1159e45c0f2572f64d1fb26220265df4"
+      ],
+      "created_time": 1718483560,
+      "env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "NGINX_VERSION=1.21.5",
+        "NJS_VERSION=0.7.1",
+        "PKG_RELEASE=1~bullseye"
+      ],
+      "entrypoint": [
+        "/docker-entrypoint.sh"
+      ],
+      "cmd": [
+        "nginx",
+        "-g",
+        "daemon off;"
+      ],
+      "working_dir": "",
+      "author": ""
+    }
+  }
+]

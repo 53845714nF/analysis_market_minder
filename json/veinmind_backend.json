@@ -1,0 +1,272 @@
+[
+  {
+    "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+    "time": "2024-06-24T14:21:54.59852286Z",
+    "source": "",
+    "level": "None",
+    "object": {
+      "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Info",
+    "detect_type": "Image",
+    "alert_type": "BasicImage",
+    "alert_detail": {
+      "references": [
+        "ghcr.io/53845714nf/marketminder/backend:latest",
+        "registry:5000/backend:latest",
+        "ghcr.io/53845714nf/marketminder/backend@sha256:08f63714146474d90064f6bf0b3921f344e1ce95745ced3b98344521bdb173a8",
+        "registry:5000/backend@sha256:a29b7206471739b101e82e36b8c045303164e4b734ddfa0d1af6b22c1254295c"
+      ],
+      "created_time": 1718483535,
+      "env": [
+        "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG=C.UTF-8",
+        "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+        "PYTHON_VERSION=3.8.19",
+        "PYTHON_PIP_VERSION=23.0.1",
+        "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+        "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/dbf0c85f76fb6e1ab42aa672ffca6f0a675d9ee4/public/get-pip.py",
+        "PYTHON_GET_PIP_SHA256=dfe9fd5c28dc98b5ac17979a953ea550cec37ae1b47a5116007395bfacff2ab9",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "PYTHONUNBUFFERED=1",
+        "POSTGRES_HOST=database",
+        "POSTGRES_USER=postgres",
+        "POSTGRES_PASSWORD=postgres",
+        "POSTGRES_DB=shopping_list"
+      ],
+      "entrypoint": null,
+      "cmd": [
+        "gunicorn",
+        "--bind",
+        "0.0.0.0:8000",
+        "app:app"
+      ],
+      "working_dir": "/app",
+      "author": ""
+    }
+  },
+  {
+    "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+    "time": "2024-06-24T14:21:55.176527109Z",
+    "source": "veinmind-sensitive",
+    "level": "High",
+    "object": {
+      "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Risk",
+    "detect_type": "Image",
+    "alert_type": "SensitiveFile",
+    "alert_detail": {
+      "path": "/etc/ImageMagick-6/mime.xml",
+      "perm": 420,
+      "size": 134319,
+      "gname": "root",
+      "gid": 0,
+      "uid": 0,
+      "uname": "root",
+      "ctim": 1718484901,
+      "mtim": 1707768947,
+      "atim": 1719238582,
+      "rule_id": 6,
+      "rule_name": "PGP private key",
+      "rule_description": "PGP private key",
+      "context_content": "pplication/pgp-encrypted\" description=\"PGP/MIME-encrypted message header\" priority=\"100\" pattern=\"*.gpg\" /\u003e\n  \u003cmime type=\"application/pgp-encrypted\" description=\"PGP/MIME-encrypted message header\" priority=\"100\" pattern=\"*.asc\" /\u003e\n  \u003cmime type=\"application/pgp-keys\" description=\"Pretty Good Privacy\" data-type=\"string\" offset=\"0\" magic=\"-----BEGIN PGP PUBLIC KEY BLOCK-----\" priority=\"50\" /\u003e\n  \u003cmime type=\"application/pgp-keys\" description=\"Pretty Good Privacy\" data-type=\"string\" offset=\"0\" magic=\"-----BEGIN PGP PRIVATE KEY BLOCK-----\" priority=\"50\" /\u003e\n  \u003cmime type=\"application/pgp-keys\" description=\"Pretty Good Privacy\" data-type=\"short\" endian=\"MSB\" offset=\"0\" magic=\"0x9501\" priority=\"50\" /\u003e\n  \u003cmime type=\"application/pgp-keys\" description=\"Pretty Good Privacy\" data-type=\"short\" endian=\"MSB\" offset=\"0\" magic=\"0x9500\" priority=\"50\" /\u003e\n  \u003cmime type=\"application/pgp-keys\" description=\"Pretty Good Privacy\" data-type=\"short\" endian=\"MSB\" offset=\"0\" magic=\"0x9900\" priority=\"50\" /\u003e\n  \u003cmime type=\"application/pgp-keys\" description=\"",
+      "context_content_highlight_range": [
+        500,
+        537
+      ]
+    }
+  },
+  {
+    "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+    "time": "2024-06-24T14:22:10.920512429Z",
+    "source": "",
+    "level": "High",
+    "object": {
+      "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Risk",
+    "detect_type": "Image",
+    "alert_type": "Vulnerability",
+    "alert_detail": {
+      "id": "GHSA-mq26-g339-26xf",
+      "published": "0001-01-01T00:00:00Z",
+      "aliases": [
+        "GHSA-mq26-g339-26xf"
+      ],
+      "summary": "",
+      "details": "",
+      "references": [],
+      "source": {
+        "os": {
+          "family": "debian",
+          "name": "12.5"
+        },
+        "type": "python-pkg",
+        "file_path": "/usr/local/lib/python3.8/site-packages/pip-23.0.1.dist-info/METADATA",
+        "packages": {
+          "name": "pip",
+          "version": "23.0.1",
+          "release": "",
+          "epoch": 0,
+          "arch": "",
+          "srcName": "",
+          "srcVersion": "",
+          "srcRelease": "",
+          "srcEpoch": 0,
+          "modularitylabel": "",
+          "indirect": false,
+          "license": "MIT",
+          "layer": ""
+        }
+      }
+    }
+  },
+  {
+    "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+    "time": "2024-06-24T14:22:10.955425717Z",
+    "source": "",
+    "level": "High",
+    "object": {
+      "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Risk",
+    "detect_type": "Image",
+    "alert_type": "Vulnerability",
+    "alert_detail": {
+      "id": "PYSEC-2023-228",
+      "published": "0001-01-01T00:00:00Z",
+      "aliases": [
+        "PYSEC-2023-228"
+      ],
+      "summary": "",
+      "details": "",
+      "references": [],
+      "source": {
+        "os": {
+          "family": "debian",
+          "name": "12.5"
+        },
+        "type": "python-pkg",
+        "file_path": "/usr/local/lib/python3.8/site-packages/pip-23.0.1.dist-info/METADATA",
+        "packages": {
+          "name": "pip",
+          "version": "23.0.1",
+          "release": "",
+          "epoch": 0,
+          "arch": "",
+          "srcName": "",
+          "srcVersion": "",
+          "srcRelease": "",
+          "srcEpoch": 0,
+          "modularitylabel": "",
+          "indirect": false,
+          "license": "MIT",
+          "layer": ""
+        }
+      }
+    }
+  },
+  {
+    "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+    "time": "2024-06-24T14:22:10.981056153Z",
+    "source": "",
+    "level": "High",
+    "object": {
+      "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Risk",
+    "detect_type": "Image",
+    "alert_type": "Vulnerability",
+    "alert_detail": {
+      "id": "GHSA-r9hx-vwmv-q579",
+      "published": "0001-01-01T00:00:00Z",
+      "aliases": [
+        "GHSA-r9hx-vwmv-q579"
+      ],
+      "summary": "",
+      "details": "",
+      "references": [],
+      "source": {
+        "os": {
+          "family": "debian",
+          "name": "12.5"
+        },
+        "type": "python-pkg",
+        "file_path": "/usr/local/lib/python3.8/site-packages/setuptools-57.5.0.dist-info/METADATA",
+        "packages": {
+          "name": "setuptools",
+          "version": "57.5.0",
+          "release": "",
+          "epoch": 0,
+          "arch": "",
+          "srcName": "",
+          "srcVersion": "",
+          "srcRelease": "",
+          "srcEpoch": 0,
+          "modularitylabel": "",
+          "indirect": false,
+          "license": "UNKNOWN",
+          "layer": ""
+        }
+      }
+    }
+  },
+  {
+    "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+    "time": "2024-06-24T14:22:11.022395442Z",
+    "source": "",
+    "level": "High",
+    "object": {
+      "id": "sha256:d410f81c9c23ebe6e6e1b803005c562e12fe31c12e211c021a72a421f7fede3c",
+      "type": "Image",
+      "runtime_type": "docker"
+    },
+    "event_type": "Risk",
+    "detect_type": "Image",
+    "alert_type": "Vulnerability",
+    "alert_detail": {
+      "id": "PYSEC-2022-43012",
+      "published": "0001-01-01T00:00:00Z",
+      "aliases": [
+        "PYSEC-2022-43012"
+      ],
+      "summary": "",
+      "details": "",
+      "references": [],
+      "source": {
+        "os": {
+          "family": "debian",
+          "name": "12.5"
+        },
+        "type": "python-pkg",
+        "file_path": "/usr/local/lib/python3.8/site-packages/setuptools-57.5.0.dist-info/METADATA",
+        "packages": {
+          "name": "setuptools",
+          "version": "57.5.0",
+          "release": "",
+          "epoch": 0,
+          "arch": "",
+          "srcName": "",
+          "srcVersion": "",
+          "srcRelease": "",
+          "srcEpoch": 0,
+          "modularitylabel": "",
+          "indirect": false,
+          "license": "UNKNOWN",
+          "layer": ""
+        }
+      }
+    }
+  }
+]
