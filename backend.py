@@ -6,7 +6,7 @@ from re import compile
 import matplotlib.pyplot as plt
 from colorama import Fore, Style
 from matplotlib_venn import venn3, venn2
-from venn import venn, pseudovenn
+from venn import pseudovenn
 from loader import Loader
 from create_trivy_backend_db import create_database
 
@@ -48,7 +48,8 @@ sets = {
     'Veinmind': veinmind
 }
 
-pseudovenn(sets,  hint_hidden=False, fontsize=14, legend_loc="best", ax=None)
+pseudovenn(sets, hint_hidden=False, fontsize=14, legend_loc=None, ax=None)
+plt.gca().legend(sets.keys(), loc="upper left", bbox_to_anchor=(0.85, 0.9))
 plt.savefig('img/backend_all.png')
 plt.clf()
 
@@ -61,14 +62,14 @@ all_without_scout = trivy | grype | snyk | vesta | veinmind
 all_without_vesta = trivy | grype | snyk | scout | veinmind
 
 # Teilmengen
-#print(Fore.GREEN + 'Teilmengen:' + Style.RESET_ALL)
-#print(f'Veinmind - all: {veinmind.difference(all_without_veinmind)}')
-#for i in vesta.difference(all_without_vesta):
-#    print(f'{loader.get_vesta_description("json/vesta_backend.json", i)}')
+print(Fore.GREEN + 'Teilmengen:' + Style.RESET_ALL)
+print(f'Veinmind - all: {veinmind.difference(all_without_veinmind)}')
+for i in vesta.difference(all_without_vesta):
+    print(f'{loader.get_vesta_description("json/vesta_backend.json", i)}')
 
-#print(f'Docker Scout - all: {scout.difference(all_without_scout)}')
-#print(f'Snyk -all: {snyk.difference(all_without_snyk)}')
-#print(f'Grype -all: {grype.difference(all_without_grype)}')
+print(f'Docker Scout - all: {scout.difference(all_without_scout)}')
+print(f'Snyk -all: {snyk.difference(all_without_snyk)}')
+print(f'Grype -all: {grype.difference(all_without_grype)}')
 
 # Analyse Trivy
 create_database()
@@ -88,8 +89,8 @@ def count_severity_vuln(severity: str):
 
 severities = ['High', 'Medium', 'Low', 'Unknown']
 
-#for severity in severities:
-#    print(f'{severity}: {count_severity_vuln(severity.upper())}')
+for severity in severities:
+    print(f'{severity}: {count_severity_vuln(severity.upper())}')
 
 
 conn = connect('trivy_backend.db')
